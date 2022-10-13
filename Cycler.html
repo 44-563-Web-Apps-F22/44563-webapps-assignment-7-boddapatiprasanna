@@ -35,7 +35,7 @@
    <!-- Part 7: Construct a “cycler” of items.  Items will be added and removed from the end.-->
    <div class="container text-center">
     <div class="container-fluid p-5 bg-warning text-black text-center">
-        <h1>Ramadevi Redrouthu builds a cycler</h1>
+        <h1>Prasanna Boddapati's cycler</h1>
     </div><br>
     <div class="flex-container" id="target">
         <div class="cycler">row item 1</div>   
@@ -69,6 +69,47 @@
         container.appendChild(element)
     }
 </script>
+<!-- Part 8: Implement Get and Spin.--> 
+<script>
+    function get() {
+        let cyclerItems = document.getElementsByClassName("cycler")
+        if(cyclerItems.length > 0) {
+            cyclerItems[cyclerItems.length-1].remove()
+        }
+    }
+
+    function spin() {
+        let cyclerItems = document.getElementsByClassName("cycler")
+        if(cyclerItems.length > 1) {
+            removedItem = cyclerItems[cyclerItems.length-1]
+            cyclerItems[cyclerItems.length-1].remove()
+            let container = document.getElementById("target")
+            container.insertBefore(removedItem, container.firstChild)
+        }
+    }
+    
+// BONUS
+function swap() {
+            let cyclerItems = document.getElementsByClassName("cycler")
+            let container = document.getElementById("target")
+            let a = Math.floor(Math.random() * cyclerItems.length)
+            let b = Math.floor(Math.random() * cyclerItems.length)
+            let firstInnerText = document.getElementsByClassName("cycler")[a]
+            let secondInnerText = document.getElementsByClassName("cycler")[b]
+            if(cyclerItems.length > 1) {
+                let temp = firstInnerText.innerHTML
+                firstInnerText.innerHTML = secondInnerText.innerHTML
+                secondInnerText.innerHTML = temp
+            }
+        }
+</script>
+<div class="container">
+    <ul class="pager">
+        <li class="previous">
+            <a href="reaction.html">Reaction Timer</a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
